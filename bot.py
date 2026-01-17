@@ -59,8 +59,10 @@ QOIDALAR:
 
 @dp.message(CommandStart())
 async def command_start_handler(message: Message) -> None:
+    # html.bold o'rniga oddiy matn ishlating yoki f-stringni to'g'irlang
     await message.answer(
-        "Salom! Men aqlli tarjimon botman (UZ <-> RU).\n"
+        f"Salom, {message.from_user.full_name}!\n\n"
+        "Men aqlli tarjimon botman (UZ <-> RU).\n"
         "Menga matn yuboring, men uni RP va jonli suhbatga moslab tarjima qilaman.\n"
         "Agar bitta so'z yuborsangiz, variantlarni taqdim etaman."
     )
