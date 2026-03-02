@@ -11,6 +11,22 @@ from aiogram.filters import CommandStart
 from aiogram.types import Message
 from openai import AsyncOpenAI
 
+from flask import Flask
+import threading
+
+# Render uchun kichik web-server
+app = Flask(__name__)
+
+@app.route('/')
+def hello():
+    return "Bot is running!"
+
+def run_flask():
+    app.run(host='0.0.0.0', port=10000)
+
+# Flaskni alohida oqimda ishga tushirish
+threading.Thread(target=run_flask, daemon=True).start()
+
 # 1. Muhit o'zgaruvchilarini yuklash
 load_dotenv()
 
